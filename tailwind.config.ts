@@ -1,4 +1,10 @@
 import type { Config } from "tailwindcss";
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-require-imports
+const defaultTheme = require("tailwindcss/defaultTheme");
+// eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-require-imports
+const colors = require("tailwindcss/colors");
+
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const flattenColorPalette = require('tailwindcss/lib/util/flattenColorPalette').default;
 import tailwindcssAnimate from "tailwindcss-animate"; // Correct way to require tailwindcss-animate

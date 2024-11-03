@@ -25,7 +25,7 @@ const Togglesm = () => {
 
 
   return (
-    <div className="lg:hidden mx-4">
+    <div className="lg:hidden mx-4 font-[family-name:var(--font-sulphur-sans)]">
       <div className="flex md:mx-5 py-4 text-sm items-center justify-between">
         {/* Mobile Toggle Button */}
         <div className="cursor-pointer mt-5" onClick={handleToggle}>
@@ -51,7 +51,7 @@ const Togglesm = () => {
               href={link.href}
               onClick={handleToggle} // Close modal on nav link click
               className={twMerge(
-                "flex items-center gap-4 text-lg font-medium text-black dark:text-white hover:text-blue-500 dark:hover:text-gray-400",
+                "flex items-center gap-4 text-xl font-medium text-black dark:text-white hover:text-blue-500 dark:hover:text-gray-400",
                 isActive(link.href) && "text-blue-500 dark:text-sky-500"
               )}
             >

@@ -17,7 +17,7 @@ function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
   return (
     <div
-      className={cn("fixed top-10 inset-x-0 max-w-full h-28 bg-white flex items-center justify-between z-50", className)}
+      className={cn("fixed top-10 inset-x-0 max-w-full h-28 bg-white border flex items-center justify-between z-50", className)}
     >
         <Image src="/logo.png" alt="logo" width="250" height="200" className="w-56 h-52 lg:mx-2 object-cover"/>
         <div className="mx-auto sm-hidden">
