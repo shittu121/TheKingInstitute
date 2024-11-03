@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import React from "react";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { HeroTypewriter } from "./HeroText";
+import Link from "next/link";
 
 export function AuroraBackgroundHero() {
   return (
@@ -25,9 +26,15 @@ export function AuroraBackgroundHero() {
         <div className="font-extralight text-base md:text-4xl dark:text-neutral-200 py-4">
         Personalized instruction, real-world projects, and a community of learners.
         </div>
-        <button className="bg-black dark:bg-white rounded-full w-fit text-white dark:text-black px-4 py-2">
-        Enroll Now
-        </button>
+        <Link 
+          href="https://docs.google.com/forms/d/e/1FAIpQLScxRs7aXp5TeOV1UCHOqEPjiue0VGLnDyYhWpskhfZzPCieQw/viewform" 
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          <button className="bg-black dark:bg-white rounded-full w-fit text-white dark:text-black px-4 py-2">
+            Enroll Now
+          </button>
+        </Link>
       </motion.div>
     </AuroraBackground>
   );
