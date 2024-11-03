@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
-import { default as flattenColorPalette } from "tailwindcss/lib/util/flattenColorPalette";
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const flattenColorPalette = require('tailwindcss/lib/util/flattenColorPalette').default;
 import tailwindcssAnimate from "tailwindcss-animate"; // Correct way to require tailwindcss-animate
 
 const config = {
@@ -94,9 +95,10 @@ const config = {
 export default config;
 
 // Custom plugin to add CSS variables for all Tailwind colors
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function addVariablesForColors({ addBase, theme }: any) {
-  let allColors = flattenColorPalette(theme("colors"));
-  let newVars = Object.fromEntries(
+  const allColors = flattenColorPalette(theme("colors"));
+  const newVars = Object.fromEntries(
     Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
   );
 
