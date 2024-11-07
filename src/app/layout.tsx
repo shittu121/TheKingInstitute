@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${sulphurSans.variable} ${sourceMono.variable} antialiased font-[family-name:var(--font-sulphur-sans)] text-center text-[30px]`}
+        className={`${sulphurSans.variable} ${sourceMono.variable} antialiased font-[family-name:var(--font-sulphur-sans)] text-[30px]`}
       >
         <NavBar />
         {children}

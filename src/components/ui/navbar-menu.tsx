@@ -3,6 +3,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { twMerge } from "tailwind-merge";
+
+
 
 const transition = {
   type: "spring",
@@ -13,22 +17,33 @@ const transition = {
   restSpeed: 0.001,
 };
 
+
+
 export const MenuItem = ({
   setActive,
   active,
   item,
+  href,
   children,
 }: {
   setActive: (item: string) => void;
   active: string | null;
   item: string;
   children?: React.ReactNode;
+  href: string;
+  className: string
 }) => {
+  const pathname = usePathname();
+
+  const isActive = (href: string) => pathname === href;
+
+
   return (
+    <Link href={href}>
     <div onMouseEnter={() => setActive(item)} className="relative ">
       <motion.p
         transition={{ duration: 0.3 }}
-        className="cursor-pointer text-black hover:opacity-[0.9] dark:text-white"
+        className={twMerge("cursor-pointer text-black hover:opacity-[0.9] dark:text-white", isActive(href) && "text-blue-500 dark:text-sky-500 border-b-2 border-b-blue-500")}
       >
         {item}
       </motion.p>
@@ -57,6 +72,7 @@ export const MenuItem = ({
         </motion.div>
       )}
     </div>
+    </Link>
   );
 };
 
