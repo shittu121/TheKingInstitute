@@ -1,9 +1,10 @@
 import React from 'react'
+import AboutPage from '@/components/AboutPage'
 
 const About = () => {
   return (
-    <div className='text-black mt-40 min-h-screen'>
-      <h1 className=''>About</h1>
+    <div className='min-h-screen'>
+      <AboutPage />
     </div>
   )
 }
