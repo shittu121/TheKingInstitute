@@ -1,4 +1,5 @@
 "use client"; // Enable client-side fetching
+
 import React, { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore"; // Firestore methods
 import { db } from "@/lib/firebase"; // Firestore instance from firebase.js
@@ -30,22 +31,25 @@ export function ContactsTable() {
 
   // Fetch data from Firestore
   useEffect(() => {
-    const fetchContacts = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(db, "contacts")); // Fetch from "contacts" collection
-        const contactsData: Contact[] = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        })) as Contact[]; // Ensure the correct typing for Firestore data
-        setContacts(contactsData); // Set fetched contacts
-      } catch (error) {
-        console.error("Error fetching contacts:", error);
-      } finally {
-        setLoading(false); // Stop loading after data is fetched
-      }
-    };
+    // Ensure we are in a client-side environment
+    if (typeof window !== "undefined") {
+      const fetchContacts = async () => {
+        try {
+          const querySnapshot = await getDocs(collection(db, "contacts")); // Fetch from "contacts" collection
+          const contactsData: Contact[] = querySnapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          })) as Contact[]; // Ensure the correct typing for Firestore data
+          setContacts(contactsData); // Set fetched contacts
+        } catch (error) {
+          console.error("Error fetching contacts:", error);
+        } finally {
+          setLoading(false); // Stop loading after data is fetched
+        }
+      };
 
-    fetchContacts();
+      fetchContacts(); // Call the function to fetch contacts
+    }
   }, []);
 
   if (loading) {
